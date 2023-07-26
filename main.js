@@ -26,18 +26,18 @@ async function run(payload, state, tools) {
     if (!state.started){
       state.question = true;
       state.started = true;
-      const {yes} = JSON.parse(
-        await tools.yesOrNo(
-          {question: q1,
-          answer: payload}
-        )
-      );
-      if (!yes) {
-        tools.reply('Understood, the game has ended now. Goodbye!');
-        return;
-      }
     }
     if (state.question) {
+    const {yes} = JSON.parse(
+    await tools.yesOrNo(
+      {question: q1,
+      answer: payload}
+      )
+    );
+    if (!yes) {
+      tools.reply('Understood, the game has ended now. Goodbye!');
+      return;
+    }
     state.question = false;
     tools.reply("Please wait, I'm pulling a news excerpt.")
     // retrieve from db
@@ -57,7 +57,7 @@ async function run(payload, state, tools) {
     }
 
     if (state.replay) {
-      tools.reply(`Your score is ${state.score} out of ${state.rounds}. Let me know when you want to try again.`);
+      tools.reply(`Your score is ${state.score} out of ${state.rounds}. Would you like to play another round?`);
       state.replay = false;
       state.question = true;
     }
