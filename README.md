@@ -1,4 +1,4 @@
-# Gamified Fake News Detection Game
+# GAN-BOT-TE: Gamified Fake News Detection Chatbot
 
 A **gamified fake news detection game** powered by **OpenAI's ChatGPT API**. The game tests users on their ability to differentiate between real and fake news articles, providing customized feedback along the way.
 
